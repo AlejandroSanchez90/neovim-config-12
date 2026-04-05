@@ -1,4 +1,4 @@
----@brief
+
 ---
 --- https://github.com/luals/lua-language-server
 ---
@@ -90,6 +90,10 @@ return {
     Lua = {
       codeLens = { enable = true },
       hint = { enable = true, semicolon = 'Disable' },
+        diagnostics = {
+          disable = { "missing-fields" },
+          globals = { "vim" },
+        },
     },
   },
 }
