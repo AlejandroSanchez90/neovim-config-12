@@ -1,4 +1,6 @@
-vim.pack.add({ { src = "https://github.com/saghen/blink.cmp", version = vim.version.range("1.*") } })
+vim.pack.add({
+  "https://github.com/rafamadriz/friendly-snippets",
+  { src = "https://github.com/saghen/blink.cmp", version = vim.version.range("1.*") } })
 
 require("blink.cmp").setup({
 
@@ -65,3 +67,7 @@ require("blink.cmp").setup({
 	-- experimental signature help support
 	-- signature = { enabled = true }
 })
+
+vim.lsp.config["*"] = {
+   capabilities = require("blink.cmp").get_lsp_capabilities(),
+}

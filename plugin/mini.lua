@@ -7,13 +7,6 @@ vim.pack.add(
 -- require('mini.pairs').setup()
 
 
-require('mini.diff').setup({
-  view = {
-    style = 'number',
-  },
-})
-
-vim.keymap.set('n', '<leader>ht', MiniDiff.toggle_overlay, { desc = 'toggle diff overlay' })
 
 require('mini.ai').setup({ n_lines = 1500 })
 
@@ -40,5 +33,36 @@ require('mini.surround').setup({
     update_n_lines = '',
     suffix_last = '',
     suffix_next = '',
+  },
+})
+
+require('mini.clue').setup({
+  window = {
+    delay = 250,
+  },
+  triggers = {
+    { mode = 'n', keys = '<leader>' },
+    { mode = 'x', keys = '<leader>' },
+    { mode = 'n', keys = 'g' },
+    { mode = 'n', keys = 'z' },
+    { mode = 'n', keys = '<C-w>' },
+  },
+  clues = {
+    { mode = { 'n', 'x' }, keys = '<leader>a', desc = '+AI/Copilot' },
+    { mode = { 'n', 'x' }, keys = '<leader>b', desc = '+Buffers' },
+    { mode = { 'n', 'x' }, keys = '<leader>f', desc = '+Find' },
+    { mode = { 'n', 'x' }, keys = '<leader>g', desc = '+Git' },
+    { mode = { 'n', 'x' }, keys = '<leader>n', desc = '+Notes' },
+    { mode = { 'n', 'x' }, keys = '<leader>o', desc = '+Operators' },
+    { mode = { 'n', 'x' }, keys = '<leader>r', desc = '+Refactor/Rename' },
+    { mode = { 'n', 'x' }, keys = '<leader>s', desc = '+Search/Surround' },
+    { mode = { 'n', 'x' }, keys = '<leader>t', desc = '+Tabs' },
+    { mode = { 'n', 'x' }, keys = '<leader>w', desc = '+Windows' },
+    require('mini.clue').gen_clues.builtin_completion(),
+    require('mini.clue').gen_clues.g(),
+    require('mini.clue').gen_clues.marks(),
+    require('mini.clue').gen_clues.registers(),
+    require('mini.clue').gen_clues.windows(),
+    require('mini.clue').gen_clues.z(),
   },
 })

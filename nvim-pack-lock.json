@@ -41,6 +41,10 @@
       "rev": "b1c4f8e7d7a11cfd58ce5623bd4676a467a064b2",
       "src": "https://github.com/dmtrKovalenko/fff.nvim"
     },
+    "friendly-snippets": {
+      "rev": "6cd7280adead7f586db6fccbd15d2cac7e2188b9",
+      "src": "https://github.com/rafamadriz/friendly-snippets"
+    },
     "gitsigns.nvim": {
       "rev": "f2ce545601fdeb755e91470b25a55705639586a4",
       "src": "https://github.com/lewis6991/gitsigns.nvim"
@@ -101,6 +105,10 @@
       "rev": "40e9d5a6cc3db11b309e39593fc7ac03bb844e38",
       "src": "https://github.com/nvim-tree/nvim-web-devicons"
     },
+    "obsidian.nvim": {
+      "rev": "d6c0e5bc30937df0657c9953d135d0ebb3af7e00",
+      "src": "https://github.com/obsidian-nvim/obsidian.nvim"
+    },
     "oil.nvim": {
       "rev": "0fcc83805ad11cf714a949c98c605ed717e0b83e",
       "src": "https://github.com/stevearc/oil.nvim"
@@ -108,6 +116,10 @@
     "plenary.nvim": {
       "rev": "b9fd5226c2f76c951fc8ed5923d85e4de065e509",
       "src": "https://github.com/nvim-lua/plenary.nvim"
+    },
+    "render-markdown.nvim": {
+      "rev": "0fd43fb4b1f073931c4b481f5f3b7cea3749e190",
+      "src": "https://github.com/MeanderingProgrammer/render-markdown.nvim"
     },
     "snacks.nvim": {
       "rev": "ad9ede6a9cddf16cedbd31b8932d6dcdee9b716e",
@@ -120,6 +132,10 @@
     "vim-tmux-navigator": {
       "rev": "e41c431a0c7b7388ae7ba341f01a0d217eb3a432",
       "src": "https://github.com/christoomey/vim-tmux-navigator"
+    },
+    "yanky.nvim": {
+      "rev": "784188e0a7363e762e53140f39124d786aec0832",
+      "src": "https://github.com/gbprod/yanky.nvim"
     }
   }
 }
