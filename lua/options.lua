@@ -1,6 +1,8 @@
 vim.cmd 'let g:netrw_liststyle = 3'
 local opt = vim.opt
 
+vim.opt.guifont = "JetBrainsMono Nerd Font:h14"
+
 opt.virtualedit = 'block'
 opt.diffopt = 'internal,filler,closeoff'
 -- Limit windows to 10 items
