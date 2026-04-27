@@ -49,6 +49,10 @@
       "rev": "f2ce545601fdeb755e91470b25a55705639586a4",
       "src": "https://github.com/lewis6991/gitsigns.nvim"
     },
+    "import.nvim": {
+      "rev": "7f6116ce53a9176f8e7aaf3e41cc60be11c7d8ee",
+      "src": "https://github.com/piersolenski/import.nvim"
+    },
     "lazyjui.nvim": {
       "rev": "51995f20aacf54140689a4af51ffe9d352fe6e9d",
       "src": "https://github.com/mrdwarf7/lazyjui.nvim"
