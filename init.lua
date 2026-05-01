@@ -4,6 +4,14 @@ vim.pack.add({
   "https://github.com/christoomey/vim-tmux-navigator",
 })
 
+require('tokyonight').setup({
+  style = 'night',
+  plugins = {
+    blink = true,
+    cmp = true,
+  },
+})
+
 vim.cmd.colorscheme("tokyonight-night")
 
 require("lsp-setup")

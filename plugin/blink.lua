@@ -1,8 +1,6 @@
-vim.pack.add({
-  "https://github.com/rafamadriz/friendly-snippets",
-  { src = "https://github.com/saghen/blink.cmp", version = vim.version.range("1.*") } })
+vim.pack.add({ { src = 'https://github.com/saghen/blink.cmp', version = vim.version.range('1.*') } })
 
-require("blink.cmp").setup({
+	require("blink.cmp").setup({
 
 	-- enabled = function()
 	-- 	return not vim.tbl_contains({ "markdown" }, vim.bo.filetype)
@@ -46,6 +44,8 @@ require("blink.cmp").setup({
 		-- Adjusts spacing to ensure icons are aligned
 		nerd_font_variant = "mono",
 	},
+
+	snippets = { preset = 'luasnip' },
 
 	-- default list of enabled providers defined so that you can extend it
 	-- elsewhere in your config, without redefining it, due to `opts_extend`
