@@ -66,3 +66,25 @@ require('mini.clue').setup({
     require('mini.clue').gen_clues.z(),
   },
 })
+
+local miniFiles = require('mini.files').setup({
+  mappings = {
+    close       = 'q',
+    go_in       = 'l',
+    go_in_plus  = '<CR>',
+    go_out      = 'h',
+    go_out_plus = 'H',
+    mark_goto   = "'",
+    mark_set    = 'm',
+    reset       = '<BS>',
+    reveal_cwd  = '_',
+    show_help   = 'g?',
+    synchronize = '<C-s>',
+    trim_left   = '<',
+    trim_right  = '>',
+  },
+
+})
+
+local explore_at_file = '<Cmd>lua MiniFiles.open(vim.api.nvim_buf_get_name(0))<CR>'
+vim.keymap.set("n", "<leader>e", explore_at_file, { desc = "Toggle files explorer" })

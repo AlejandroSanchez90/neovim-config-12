@@ -24,4 +24,4 @@ require('oil').setup({
       show_hidden = true,
     },
   })
-vim.keymap.set("n", "<leader>e", require("oil").toggle_float, { desc = "Toggle floating Oil buffer" })
+-- vim.keymap.set("n", "<leader>e", require("oil").toggle_float, { desc = "Toggle floating Oil buffer" })
