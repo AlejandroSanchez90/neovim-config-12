@@ -21,5 +21,9 @@ require("conform").setup({
 		go = { "gofmt" },
 		sql = { "sqruff" },
 		proto = { "buf-format" },
+		c = { "clang_format" },
+		cpp = { "clang_format" },
+		objc = { "clang_format" },
+		objcpp = { "clang_format" },
 	},
 })
