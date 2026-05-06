@@ -10,8 +10,7 @@ vim.pack.add(
 
 require('mini.ai').setup({ n_lines = 1500 })
 
-local miniOperators = require('mini.operators')
-miniOperators.setup({
+require('mini.operators').setup({
   evaluate = { prefix = '<leader>o=' },
   exchange = { prefix = '<leader>ox', reindent_linewise = true },
   multiply = { prefix = '<leader>om' },
@@ -19,7 +18,7 @@ miniOperators.setup({
   sort = { prefix = '<leader>os' },
 })
 vim.keymap.set('x', 'm', function()
-  miniOperators.multiply('visual')
+  require('mini.operators').multiply('visual')
 end, { desc = 'MiniOperators: multiply', noremap = true, silent = true })
 
 require('mini.surround').setup({
@@ -67,7 +66,7 @@ require('mini.clue').setup({
   },
 })
 
-local miniFiles = require('mini.files').setup({
+require('mini.files').setup({
   mappings = {
     close       = 'q',
     go_in       = 'l',
@@ -85,6 +84,7 @@ local miniFiles = require('mini.files').setup({
   },
 
 })
+
 
 local explore_at_file = '<Cmd>lua MiniFiles.open(vim.api.nvim_buf_get_name(0))<CR>'
 vim.keymap.set("n", "<leader>e", explore_at_file, { desc = "Toggle files explorer" })
