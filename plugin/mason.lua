@@ -11,6 +11,7 @@ local ensure_installed = {
 	"eslint-lsp",
 	"prettier",
 	"clangd",
+  "lua-language-server",
 	"clang-format",
 }
 
