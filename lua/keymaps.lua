@@ -42,13 +42,13 @@ keymap.set('n', '<leader>we', '<C-w>=', { desc = 'Make splits equal size' })    
 keymap.set('n', '<leader>wx', '<cmd>close<CR>', { desc = 'Close current split' }) -- close current split window
 
 -- keymap.set('n', '<leader>tt', '<cmd>tabnew<CR>', { desc = 'Open new tab' }) -- open new tab
-keymap.set('n', '<leader>tx', '<cmd>tabclose<CR>', { desc = 'Close current tab' })              -- close current tab
-keymap.set('n', '<leader>tn', '<cmd>tabn<CR>', { desc = 'Go to next tab' })                     --  go to next tab
-keymap.set('n', '<leader>tp', '<cmd>tabp<CR>', { desc = 'Go to previous tab' })                 --  go to previous tab
-keymap.set('n', '<leader>tf', '<cmd>tabnew %<CR>', { desc = 'Open current buffer in new tab' }) --  move current buffer to new tab
-keymap.set('n', '<leader>to', '<cmd>tabo<CR>', { desc = 'Close other tabs' })                   -- close current split window
-keymap.set('n', '<leader>th', '<cmd>-tabmove<CR>', { desc = 'Move tab to the right' })          -- close current split window
-keymap.set('n', '<leader>tl', '<cmd>+tabmove<CR>', { desc = 'Move tab to the left' })           -- close current split window
+-- keymap.set('n', '<leader>tx', '<cmd>tabclose<CR>', { desc = 'Close current tab' }) -- close current tab
+-- keymap.set('n', '<leader>tn', '<cmd>tabn<CR>', { desc = 'Go to next tab' }) -- go to next tab
+-- keymap.set('n', '<leader>tp', '<cmd>tabp<CR>', { desc = 'Go to previous tab' }) -- go to previous tab
+-- keymap.set('n', '<leader>tf', '<cmd>tabnew %<CR>', { desc = 'Open current buffer in new tab' }) -- move current buffer to new tab
+-- keymap.set('n', '<leader>to', '<cmd>tabo<CR>', { desc = 'Close other tabs' }) -- close other tabs
+-- keymap.set('n', '<leader>th', '<cmd>-tabmove<CR>', { desc = 'Move tab to the right' }) -- move tab right
+-- keymap.set('n', '<leader>tl', '<cmd>+tabmove<CR>', { desc = 'Move tab to the left' }) -- move tab left
 
 -- Accidental macro mode trigger handler
 vim.keymap.set('n', 'q', '<nop>', { noremap = true })

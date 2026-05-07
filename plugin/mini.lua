@@ -55,7 +55,7 @@ require('mini.clue').setup({
     { mode = { 'n', 'x' }, keys = '<leader>o', desc = '+Operators' },
     { mode = { 'n', 'x' }, keys = '<leader>r', desc = '+Refactor/Rename' },
     { mode = { 'n', 'x' }, keys = '<leader>s', desc = '+Search/Surround' },
-    { mode = { 'n', 'x' }, keys = '<leader>t', desc = '+Tabs' },
+    { mode = { 'n', 'x' }, keys = '<leader>t', desc = '+Terminal' },
     { mode = { 'n', 'x' }, keys = '<leader>w', desc = '+Windows' },
     require('mini.clue').gen_clues.builtin_completion(),
     require('mini.clue').gen_clues.g(),
