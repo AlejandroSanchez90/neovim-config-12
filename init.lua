@@ -10,6 +10,11 @@ require('tokyonight').setup({
     blink = true,
     cmp = true,
   },
+  on_highlights = function(hl, c)
+    hl.LineNr = { fg = c.dark5 }
+    hl.LineNrAbove = { fg = c.dark5 }
+    hl.LineNrBelow = { fg = c.dark5 }
+  end,
 })
 
 vim.cmd.colorscheme("tokyonight-night")
