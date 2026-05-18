@@ -26,10 +26,6 @@
       "src": "https://github.com/saghen/blink.cmp",
       "version": "1.0.0 - 2.0.0"
     },
-    "bufferline.nvim": {
-      "rev": "655133c3b4c3e5e05ec549b9f8cc2894ac6f51b3",
-      "src": "https://github.com/akinsho/bufferline.nvim"
-    },
     "codediff.nvim": {
       "rev": "8afc229d38dc13ce71b2ffbb860084b2c726e061",
       "src": "https://github.com/esmuellert/codediff.nvim"
@@ -42,10 +38,6 @@
       "rev": "07aa57148ac28986bab9f55e87ee3d929e2726b1",
       "src": "https://github.com/zbirenbaum/copilot.lua"
     },
-    "copilot.vim": {
-      "rev": "a12fd5672110c8aa7e3c8419e28c96943ca179be",
-      "src": "https://github.com/github/copilot.vim"
-    },
     "fff.nvim": {
       "rev": "b1c4f8e7d7a11cfd58ce5623bd4676a467a064b2",
       "src": "https://github.com/dmtrKovalenko/fff.nvim"
@@ -54,10 +46,6 @@
       "rev": "6cd7280adead7f586db6fccbd15d2cac7e2188b9",
       "src": "https://github.com/rafamadriz/friendly-snippets"
     },
-    "fyler.nvim": {
-      "rev": "e87911e6c21d099225063f5aa672e00f6dbb5976",
-      "src": "https://github.com/A7Lavinraj/fyler.nvim"
-    },
     "gitsigns.nvim": {
       "rev": "f2ce545601fdeb755e91470b25a55705639586a4",
       "src": "https://github.com/lewis6991/gitsigns.nvim"
@@ -65,10 +53,6 @@
     "import.nvim": {
       "rev": "7f6116ce53a9176f8e7aaf3e41cc60be11c7d8ee",
       "src": "https://github.com/piersolenski/import.nvim"
-    },
-    "jj.nvim": {
-      "rev": "167c2065219bd0a7f1f195f339d9047ff6e60473",
-      "src": "https://github.com/NicolasGB/jj.nvim"
     },
     "lazyjui.nvim": {
       "rev": "51995f20aacf54140689a4af51ffe9d352fe6e9d",
@@ -85,10 +69,6 @@
     "mason.nvim": {
       "rev": "44d1e90e1f66e077268191e3ee9d2ac97cc18e65",
       "src": "https://github.com/mason-org/mason.nvim"
-    },
-    "mini.icons": {
-      "rev": "bac6317300e205335df425296570d84322730067",
-      "src": "https://github.com/nvim-mini/mini.icons"
     },
     "mini.nvim": {
       "rev": "402ee6c6ec8ea44b22330446c8fb4e615fd3953e",

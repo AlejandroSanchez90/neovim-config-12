@@ -21,5 +21,6 @@ vim.cmd.colorscheme("tokyonight-night")
 
 require("lsp-setup")
 require("autocmd")
+require("commands")
 require("keymaps")
 require("options")
