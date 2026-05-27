@@ -9,6 +9,16 @@ vim.diagnostic.config({
 	},
 })
 
+vim.lsp.config("lua_ls", {
+	settings = {
+		Lua = {
+			diagnostics = {
+				globals = { "vim" },
+			},
+		},
+	},
+})
+
 vim.lsp.enable({
 	"emmet_language_server",
 	"lua_ls",
