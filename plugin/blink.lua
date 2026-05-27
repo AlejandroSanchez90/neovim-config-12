@@ -68,6 +68,6 @@ vim.pack.add({ { src = 'https://github.com/saghen/blink.cmp', version = vim.vers
 	-- signature = { enabled = true }
 })
 
-vim.lsp.config["*"] = {
-   capabilities = require("blink.cmp").get_lsp_capabilities(),
-}
+vim.lsp.config("*", {
+	capabilities = require("blink.cmp").get_lsp_capabilities(),
+})
