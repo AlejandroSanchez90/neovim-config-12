@@ -4,8 +4,8 @@ vim.api.nvim_create_autocmd("LspAttach", {
 	callback = function(event)
 		-- rename
 		vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, { buffer = event.buf, desc = "[R]ename member" })
-
 		vim.keymap.set("n", "<leader>d", vim.diagnostic.open_float, { buffer = event.buf, desc = "Show diagnostic" })
+
 		-- show
 		vim.keymap.set(
 			{ "n", "x" },

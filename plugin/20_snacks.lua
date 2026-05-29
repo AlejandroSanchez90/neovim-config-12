@@ -11,6 +11,20 @@ require("snacks").setup({
   picker = {
     enabled = true,
     ui_select = true,
+    actions = require('trouble.sources.snacks').actions,
+    win = {
+      input = {
+        keys = {
+          ['<c-q>'] = { 'trouble_open', mode = { 'n', 'i' } },
+          ['<c-t>'] = { 'trouble_open', mode = { 'n', 'i' } },
+        },
+      },
+      list = {
+        keys = {
+          ['<c-q>'] = { 'trouble_open', mode = { 'n', 'i' } },
+        },
+      },
+    },
     sources = {
       files = { hidden = true },
       grep = { hidden = true },
@@ -106,12 +120,8 @@ vim.keymap.set('n', '<leader>bd', function()
 end, { desc = 'Close other buffers' })
 
 vim.keymap.set('n', '<leader>fdw', function()
-  Snacks.picker.diagnostics {
-    on_show = function()
-      vim.cmd.stopinsert()
-    end,
-  }
-end, { desc = 'Diagnostics' })
+  vim.cmd('Trouble diagnostics toggle')
+end, { desc = 'Diagnostics (Trouble)' })
 
 vim.keymap.set('n', '<leader>fh', function()
   Snacks.picker.help()
@@ -122,12 +132,8 @@ vim.keymap.set('n', '<leader>fk', function()
 end, { desc = 'Help' })
 
 vim.keymap.set('n', '<leader>fdd', function()
-  Snacks.picker.diagnostics_buffer {
-    on_show = function()
-      vim.cmd.stopinsert()
-    end,
-  }
-end, { desc = 'Buffer Diagnostics' })
+  vim.cmd('Trouble diagnostics toggle filter.buf=0')
+end, { desc = 'Buffer Diagnostics (Trouble)' })
 
 vim.keymap.set('n', '<leader>ff', function()
   Snacks.picker.files()

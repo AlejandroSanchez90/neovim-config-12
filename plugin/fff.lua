@@ -28,6 +28,22 @@ require('fff').setup({
   },
 })
 
+local has_trouble = pcall(require, 'trouble')
+local picker_ok, picker_ui = pcall(require, 'fff.picker_ui')
+if has_trouble and picker_ok then
+  local send_to_quickfix = picker_ui.send_to_quickfix
+  picker_ui.send_to_quickfix = function(...)
+    send_to_quickfix(...)
+    vim.schedule(function()
+      if #vim.fn.getqflist() == 0 then
+        return
+      end
+      vim.cmd('silent! cclose')
+      vim.cmd('Trouble qflist open')
+    end)
+  end
+end
+
 vim.keymap.set('n', '<leader><space>', function()
   require('fff').find_files()
 end, { desc = 'FFFind files' })
