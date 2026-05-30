@@ -64,6 +64,11 @@ vim.keymap.set("n", "<leader>mx", function()
   dapui.toggle()
 end, { desc = "Debug UI toggle" })
 
+vim.keymap.set("n", "<leader>mr", function()
+  dapui.open()
+  dap.restart()
+end, { desc = "Debug restart" })
+
 vim.keymap.set("n", "<leader>mq", function()
   dap.terminate()
   dapui.close()
