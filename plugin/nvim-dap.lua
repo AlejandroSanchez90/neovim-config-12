@@ -55,22 +55,32 @@ dap.listeners.before.event_exited["dapui_config"] = function()
   dapui.close()
 end
 
-vim.keymap.set("n", "<F2>", function()
+vim.keymap.set("n", "<leader>ms", function()
+  dapui.open()
   dap.continue()
-end, { desc = "Debug continue" })
+end, { desc = "Debug start/continue" })
 
-vim.keymap.set("n", "<F3>", function()
+vim.keymap.set("n", "<leader>mx", function()
+  dapui.toggle()
+end, { desc = "Debug UI toggle" })
+
+vim.keymap.set("n", "<leader>mq", function()
+  dap.terminate()
   dapui.close()
-end, { desc = "Debug UI close" })
+end, { desc = "Debug stop" })
 
-vim.keymap.set("n", "<F1>", function()
+vim.keymap.set("n", "<leader>mb", function()
   dap.toggle_breakpoint()
 end, { desc = "Debug breakpoint" })
 
-vim.keymap.set("n", "<F5>", function()
+vim.keymap.set("n", "<leader>mn", function()
   dap.step_over()
-end, { desc = "Debug next" })
+end, { desc = "Debug step over" })
 
-vim.keymap.set("n", "<F4>", function()
+vim.keymap.set("n", "<leader>mi", function()
   dap.step_into()
-end, { desc = "Debug into" })
+end, { desc = "Debug step into" })
+
+vim.keymap.set("n", "<leader>mo", function()
+  dap.step_out()
+end, { desc = "Debug step out" })

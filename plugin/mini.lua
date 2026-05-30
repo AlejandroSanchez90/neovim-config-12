@@ -51,6 +51,7 @@ require('mini.clue').setup({
     { mode = { 'n', 'x' }, keys = '<leader>b', desc = '+Buffers' },
     { mode = { 'n', 'x' }, keys = '<leader>f', desc = '+Find' },
     { mode = { 'n', 'x' }, keys = '<leader>g', desc = '+Git' },
+    { mode = { 'n', 'x' }, keys = '<leader>m', desc = '+Debug' },
     { mode = { 'n', 'x' }, keys = '<leader>n', desc = '+Notes' },
     { mode = { 'n', 'x' }, keys = '<leader>o', desc = '+Operators' },
     { mode = { 'n', 'x' }, keys = '<leader>r', desc = '+Refactor/Rename' },
