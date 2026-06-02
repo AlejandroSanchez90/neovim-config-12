@@ -86,6 +86,26 @@ require('mini.files').setup({
 
 })
 
+local yank_minifiles_path = function()
+  local path = (MiniFiles.get_fs_entry() or {}).path
+  if path == nil then
+    return vim.notify('Cursor is not on valid entry')
+  end
+
+  vim.fn.setreg('+', path)
+  vim.notify('Yanked path: ' .. path)
+end
+
+vim.api.nvim_create_autocmd('User', {
+  pattern = 'MiniFilesBufferCreate',
+  callback = function(args)
+    vim.keymap.set('n', 'yp', yank_minifiles_path, {
+      buffer = args.data.buf_id,
+      desc = 'Yank path',
+    })
+  end,
+})
+
 
 local explore_at_file = '<Cmd>lua MiniFiles.open(vim.api.nvim_buf_get_name(0))<CR>'
 vim.keymap.set("n", "<leader>e", explore_at_file, { desc = "Toggle files explorer" })
