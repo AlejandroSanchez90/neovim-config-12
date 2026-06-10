@@ -19,12 +19,14 @@ require('copilot').setup({
   },
 })
 
-vim.keymap.set('i', '<C-e>', function() require('copilot.suggestion').dismiss() end, { desc = 'Dismiss Copilot suggestion' })
+vim.keymap.set('i', '<C-e>', function() require('copilot.suggestion').dismiss() end,
+  { desc = 'Dismiss Copilot suggestion' })
 vim.api.nvim_set_hl(0, 'CopilotSuggestion', { fg = '#808080', italic = true })
 
 local chat = require('CopilotChat')
 chat.setup({
   provider = 'copilot',
+  model = 'auto',
   mappings = {
     complete = { insert = '<C-t>' },
   },
@@ -32,7 +34,8 @@ chat.setup({
   context = 'buffer',
   prompts = {
     Memo = {
-      prompt = 'Add memoize to this code, if its a void use useCallback , if it returns a value useMemo, just reply with the update code nothing else',
+      prompt =
+      'Add memoize to this code, if its a void use useCallback , if it returns a value useMemo, just reply with the update code nothing else',
       description = 'Add memoization to the code',
       mapping = '<leader>au',
       auto_follow_cursor = true,
