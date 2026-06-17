@@ -10,7 +10,10 @@ vim.pack.add({ { src = 'https://github.com/saghen/blink.cmp', version = vim.vers
 		-- Disable auto brackets
 		-- NOTE: some LSPs may add auto brackets themselves anyway
     --j
-		accept = { auto_brackets = { enabled = false } },
+		accept = {
+			resolve_timeout_ms = 400,
+			auto_brackets = { enabled = false },
+		},
 		menu = {
 			border = "single",
 			draw = {
@@ -33,7 +36,15 @@ vim.pack.add({ { src = 'https://github.com/saghen/blink.cmp', version = vim.vers
 	-- 'enter' for mappings similar to 'super-tab' but with 'enter' to accept
 	-- see the "default configuration" section below for full documentation on how to define
 	-- your own keymap.
-	keymap = { preset = "default" },
+	keymap = {
+		preset = "default",
+		["<C-y>"] = {
+			function(cmp)
+				return cmp.select_and_accept({ force = true })
+			end,
+			"fallback",
+		},
+	},
 
 	appearance = {
 		-- Sets the fallback highlight groups to nvim-cmp's highlight groups
