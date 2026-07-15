@@ -60,6 +60,8 @@ local parsers = {
 
 nts.install(parsers):wait(300000)
 
+vim.treesitter.language.register('markdown', 'opencode_output')
+
 vim.api.nvim_create_autocmd("FileType", {
   callback = function(args)
     local ft = vim.bo[args.buf].filetype

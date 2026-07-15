@@ -47,7 +47,7 @@ require('mini.clue').setup({
     { mode = 'n', keys = '<C-w>' },
   },
   clues = {
-    { mode = { 'n', 'x' }, keys = '<leader>a', desc = '+AI/Copilot' },
+    { mode = { 'n', 'x' }, keys = '<leader>a', desc = '+AI' },
     { mode = { 'n', 'x' }, keys = '<leader>b', desc = '+Buffers' },
     { mode = { 'n', 'x' }, keys = '<leader>f', desc = '+Find' },
     { mode = { 'n', 'x' }, keys = '<leader>g', desc = '+Git' },
