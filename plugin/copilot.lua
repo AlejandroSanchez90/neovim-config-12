@@ -13,6 +13,7 @@ vim.api.nvim_create_autocmd('PackChanged', {
 })
 
 require('copilot').setup({
+  auth_provider_url = 'https://eog-resources-inc.ghe.com/',
   suggestion = {
     auto_trigger = true,
     keymap = { accept = '<Tab>' },
@@ -23,33 +24,33 @@ vim.keymap.set('i', '<C-e>', function() require('copilot.suggestion').dismiss() 
   { desc = 'Dismiss Copilot suggestion' })
 vim.api.nvim_set_hl(0, 'CopilotSuggestion', { fg = '#808080', italic = true })
 
-local chat = require('CopilotChat')
-chat.setup({
-  provider = 'copilot',
-  model = 'auto',
-  mappings = {
-    complete = { insert = '<C-t>' },
-  },
-  auto_follow_cursor = true,
-  context = 'buffer',
-  prompts = {
-    Memo = {
-      prompt =
-      'Add memoize to this code, if its a void use useCallback , if it returns a value useMemo, just reply with the update code nothing else',
-      description = 'Add memoization to the code',
-      mapping = '<leader>au',
-      auto_follow_cursor = true,
-    },
-    XML = {
-      prompt = 'Create an XML for this code, just reply with the XML nothing else',
-      description = 'Create an XML schema for the code',
-      mapping = '<leader>ax',
-    },
-  },
-})
+-- local chat = require('CopilotChat')
+-- chat.setup({
+--   provider = 'copilot',
+--   model = 'auto',
+--   mappings = {
+--     complete = { insert = '<C-t>' },
+--   },
+--   auto_follow_cursor = true,
+--   context = 'buffer',
+--   prompts = {
+--     Memo = {
+--       prompt =
+--       'Add memoize to this code, if its a void use useCallback , if it returns a value useMemo, just reply with the update code nothing else',
+--       description = 'Add memoization to the code',
+--       mapping = '<leader>au',
+--       auto_follow_cursor = true,
+--     },
+--     XML = {
+--       prompt = 'Create an XML for this code, just reply with the XML nothing else',
+--       description = 'Create an XML schema for the code',
+--       mapping = '<leader>ax',
+--     },
+--   },
+-- })
 
-vim.keymap.set({ 'n', 'v' }, '<leader>ac', chat.toggle, { desc = 'copilot chat' })
-vim.keymap.set({ 'n', 'v' }, '<leader>ar', '<cmd>CopilotChatReset<cr>', { desc = 'copilot reset' })
-vim.keymap.set({ 'n', 'v' }, '<leader>af', '<cmd>CopilotChatFix<cr>', { desc = 'copilot fix' })
-vim.keymap.set('n', '<leader>am', '<cmd>CopilotChatCommit<cr>', { desc = 'Copilot commit message' })
-vim.keymap.set({ 'n', 'v' }, '<leader>ap', '<cmd>CopilotChatPrompts<cr>', { desc = 'Copilot Prompts' })
+-- vim.keymap.set({ 'n', 'v' }, '<leader>ac', chat.toggle, { desc = 'copilot chat' })
+-- vim.keymap.set({ 'n', 'v' }, '<leader>ar', '<cmd>CopilotChatReset<cr>', { desc = 'copilot reset' })
+-- vim.keymap.set({ 'n', 'v' }, '<leader>af', '<cmd>CopilotChatFix<cr>', { desc = 'copilot fix' })
+-- vim.keymap.set('n', '<leader>am', '<cmd>CopilotChatCommit<cr>', { desc = 'Copilot commit message' })
+-- vim.keymap.set({ 'n', 'v' }, '<leader>ap', '<cmd>CopilotChatPrompts<cr>', { desc = 'Copilot Prompts' })

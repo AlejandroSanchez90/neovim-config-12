@@ -5,11 +5,11 @@ vim.pack.add({
 require('opencode').setup({
   preferred_picker = 'snacks',
   default_global_keymaps = false,
-  context = {
-    current_file = {
-      enabled = false,
-    },
-  },
+  -- context = {
+  --   current_file = {
+  --     enabled = false,
+  --   },
+  -- },
   -- debug = {
   --   highlight_changed_lines = true,
   --   highlight_changed_lines_timeout_ms = 1200,
@@ -28,10 +28,10 @@ require('opencode').setup({
   },
 })
 
-vim.keymap.set('n', '<leader>ao', function()
+vim.keymap.set('n', '<leader>ac', function()
   require('opencode.api').toggle()
 end, { desc = 'Toggle opencode' })
 
-vim.keymap.set('x', '<leader>ao', function()
+vim.keymap.set('x', '<leader>ac', function()
   require('opencode.api').add_visual_selection()
 end, { desc = 'Add selection to opencode' })
