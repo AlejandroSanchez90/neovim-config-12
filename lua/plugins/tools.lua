@@ -68,7 +68,6 @@ return {
     ft = { 'markdown', 'quarto' },
     cmd = 'Obsidian',
     keys = {
-      { '<leader>nd', '<cmd>Obsidian today<CR>', desc = 'Obsidian Create/Update Today Note' },
       { '<leader>nn', desc = 'Obsidian New Named Note' },
       { '<leader>nt', '<cmd>Obsidian tags<CR>', desc = 'Obsidian Search for tags' },
       { '<leader>nw', '<cmd>Obsidian workspace<CR>', desc = 'Obsidian Select workspace' },
@@ -77,7 +76,25 @@ return {
     },
     dependencies = { 'folke/snacks.nvim', 'nvim-lua/plenary.nvim', 'saghen/blink.cmp' },
     config = function()
-      require('obsidian').setup({ legacy_commands = false, note_id_func = require('obsidian.builtin').title_id, picker = { name = 'snacks.pick' }, completion = { min_chars = 1 }, ui = { enable = false }, workspaces = { { name = 'work', path = '~/vaults/work' }, { name = 'personal', path = '~/vaults/personal' } } })
+      local vault = vim.env.OBSIDIAN_VAULT
+      if not vault or vault == '' then
+        error('Set OBSIDIAN_VAULT to the local path of your synced Obsidian vault.')
+      end
+
+      require('obsidian').setup({
+        legacy_commands = false,
+        note_id_func = require('obsidian.builtin').title_id,
+        notes_subdir = nil,
+        new_notes_location = 'notes_subdir',
+        daily_notes = { enabled = false },
+        picker = { name = 'snacks.pick' },
+        completion = { min_chars = 1 },
+        ui = { enable = false },
+        workspaces = {
+          { name = 'work', path = vim.fs.joinpath(vault, 'work'), strict = true },
+          { name = 'personal', path = vim.fs.joinpath(vault, 'personal'), strict = true },
+        },
+      })
       vim.keymap.set('n', '<leader>nn', function()
         local title = vim.fn.input('Note title: ')
         if title ~= nil and title ~= '' then vim.cmd('Obsidian new ' .. vim.fn.fnameescape(title)) end
