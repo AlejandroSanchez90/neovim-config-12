@@ -16,6 +16,7 @@ require('opencode').setup({
   -- },
   keymap = {
     input_window = {
+      ['<cr>'] = { 'submit_input_prompt', mode = { 'n', 'i' }, desc = 'Submit prompt' },
       ['<tab>'] = { 'switch_mode', mode = { 'n', 'i' }, desc = 'Switch agent mode' },
       ['q'] = { 'close', mode = { 'n' }, desc = 'Close opencode' },
       ['<M-v>'] = false,
