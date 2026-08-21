@@ -11,7 +11,7 @@ opt.winborder = 'single'
 
 opt.relativenumber = true
 opt.number = true
-opt.mouse = ''
+opt.mouse = 'a'
 -- tabs & indentation
 opt.tabstop = 2       -- 2 spaces for tabs (prettier default)
 opt.shiftwidth = 2    -- 2 spaces for indent width

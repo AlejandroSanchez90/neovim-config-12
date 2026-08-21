@@ -102,16 +102,39 @@ return {
     end,
   },
   {
-    'sudo-tee/opencode.nvim',
-    cmd = 'Opencode',
-    keys = { { '<leader>ac', function() require('opencode.api').toggle() end, desc = 'Toggle opencode' }, { '<leader>ac', function() require('opencode.api').add_visual_selection() end, mode = 'x', desc = 'Add selection to opencode' } },
-    dependencies = { 'MeanderingProgrammer/render-markdown.nvim', 'saghen/blink.cmp', 'folke/snacks.nvim' },
+    'folke/sidekick.nvim',
+    version = 'v2.*',
+    cmd = 'Sidekick',
+    keys = {
+      {
+        '<leader>ac',
+        function()
+          local Session = require('sidekick.cli.session')
+          local State = require('sidekick.cli.state')
+          local state = State.get({ name = 'opencode', cwd = true, external = false })[1]
+
+          if not state then
+            state = State.get_state(Session.new({ tool = 'opencode', cwd = Session.cwd() }))
+          end
+
+          local attached
+          state, attached = State.attach(state)
+          if state.terminal then
+            if not attached then state.terminal:toggle() end
+            if state.terminal:is_open() then state.terminal:focus() end
+          end
+        end,
+        desc = 'Toggle OpenCode',
+      },
+      { '<leader>ac', function() require('sidekick.cli').send({ name = 'opencode', msg = '{selection}' }) end, mode = 'x', desc = 'Send selection to OpenCode' },
+    },
     opts = {
-      preferred_picker = 'snacks',
-      default_global_keymaps = false,
-      keymap = {
-        input_window = { ['<cr>'] = { 'submit_input_prompt', mode = { 'n', 'i' }, desc = 'Submit prompt' }, ['<tab>'] = { 'switch_mode', mode = { 'n', 'i' }, desc = 'Switch agent mode' }, ['q'] = { 'close', mode = { 'n' }, desc = 'Close opencode' }, ['<M-v>'] = false, ['<C-v>'] = { 'paste_image', mode = { 'i' }, desc = 'Paste image from clipboard' } },
-        output_window = { ['<tab>'] = { 'switch_mode', mode = { 'n' }, desc = 'Switch agent mode' }, ['q'] = { 'close', mode = { 'n' }, desc = 'Close opencode' } },
+      nes = { enabled = false },
+      cli = {
+        win = { keys = { files = false } },
+        mux = { enabled = false },
+        picker = 'snacks',
+        tools = { opencode = {} },
       },
     },
   },

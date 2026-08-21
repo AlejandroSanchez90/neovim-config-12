@@ -272,7 +272,15 @@ return {
       })
     end,
   },
-  { 'rmagatti/auto-session', lazy = false, opts = { suppressed_dirs = { '~/', '~/Projects', '~/Downloads', '/' }, use_git_branch = true } },
+  {
+    'rmagatti/auto-session',
+    lazy = false,
+    opts = {
+      suppressed_dirs = { '~/', '~/Projects', '~/Downloads', '/' },
+      use_git_branch = true,
+      close_filetypes_on_save = { 'checkhealth', 'sidekick_terminal' },
+    },
+  },
   {
     'stevearc/oil.nvim',
     lazy = false,
