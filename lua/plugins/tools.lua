@@ -131,7 +131,13 @@ return {
     opts = {
       nes = { enabled = false },
       cli = {
-        win = { keys = { files = false } },
+        win = {
+          keys = {
+            files = false,
+            hide_ctrl_q = { '<c-q>', 'hide', mode = 'nt', desc = 'Hide OpenCode' },
+            stopinsert = false,
+          },
+        },
         mux = { enabled = false },
         picker = 'snacks',
         tools = { opencode = {} },
