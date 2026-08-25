@@ -55,6 +55,7 @@ opt.foldlevel = 99
 opt.foldlevelstart = 99
 opt.foldmethod = "expr"
 opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+opt.foldtext = ''
 
 --wrap lines
 opt.wrap = true
