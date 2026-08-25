@@ -5,7 +5,7 @@ return {
     config = function()
       require('mason').setup()
       local ensure_installed = {
-        'tailwindcss-language-server', 'vtsls', 'emmet-language-server', 'eslint-lsp',
+        'tailwindcss-language-server', 'vtsls', 'emmet-language-server', 'eslint_d',
         'prettier', 'clangd', 'lua-language-server', 'clang-format',
       }
       vim.api.nvim_create_autocmd('VimEnter', {
@@ -40,12 +40,12 @@ return {
     config = function()
       require('blink.cmp').setup({
         completion = {
-          accept = { resolve_timeout_ms = 400, auto_brackets = { enabled = false } },
+          accept = { dot_repeat = false, auto_brackets = { enabled = false } },
           menu = { border = 'single', draw = { gap = 2, columns = { { 'kind_icon', 'label', 'label_description', gap = 1 }, { 'kind', 'source_name', gap = 1 } } } },
           documentation = { auto_show = true, auto_show_delay_ms = 200 },
         },
         signature = { enabled = true },
-        keymap = { preset = 'default', ['<C-y>'] = { function(cmp) return cmp.select_and_accept({ force = true }) end, 'fallback' } },
+        keymap = { preset = 'default' },
         appearance = { use_nvim_cmp_as_default = true, nerd_font_variant = 'mono' },
         snippets = { preset = 'luasnip' },
         sources = { default = { 'lsp', 'path', 'snippets', 'buffer' }, providers = {} },
@@ -135,11 +135,17 @@ return {
   },
   {
     'mfussenegger/nvim-lint',
-    event = { 'BufEnter', 'BufWritePost', 'InsertLeave' },
+    event = { 'BufReadPost', 'BufNewFile' },
     config = function()
       local lint = require('lint')
-      lint.linters_by_ft = { sql = { 'sqruff' }, javascript = { 'eslint_d' }, javascriptreact = { 'eslint_d' }, typescript = { 'eslint_d' }, typescriptreact = { 'eslint_d' } }
-      vim.api.nvim_create_autocmd({ 'BufEnter', 'BufWritePost', 'InsertLeave' }, {
+      lint.linters_by_ft = {
+        sql = { 'sqruff' },
+        javascript = { 'eslint_d' },
+        javascriptreact = { 'eslint_d' },
+        typescript = { 'eslint_d' },
+        typescriptreact = { 'eslint_d' },
+      }
+      vim.api.nvim_create_autocmd({ 'BufWritePost', 'InsertLeave' }, {
         group = vim.api.nvim_create_augroup('nvim-lint', { clear = true }),
         callback = function()
           if vim.opt_local.modifiable:get() then lint.try_lint(nil, { ignore_errors = true }) end
