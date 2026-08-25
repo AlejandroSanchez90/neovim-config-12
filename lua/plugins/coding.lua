@@ -45,7 +45,20 @@ return {
           documentation = { auto_show = true, auto_show_delay_ms = 200 },
         },
         signature = { enabled = true },
-        keymap = { preset = 'default' },
+        keymap = {
+          preset = 'default',
+          ['<Tab>'] = {
+            function()
+              local ok, suggestion = pcall(require, 'copilot.suggestion')
+              if ok and suggestion.is_visible() then
+                suggestion.accept()
+                return true
+              end
+            end,
+            'snippet_forward',
+            'fallback',
+          },
+        },
         appearance = { use_nvim_cmp_as_default = true, nerd_font_variant = 'mono' },
         snippets = { preset = 'luasnip' },
         sources = { default = { 'lsp', 'path', 'snippets', 'buffer' }, providers = {} },
@@ -160,10 +173,18 @@ return {
     config = function()
       require('copilot').setup({
         auth_provider_url = 'https://eog-resources-inc.ghe.com/',
-        suggestion = { auto_trigger = true, keymap = { accept = '<Tab>' } },
+        suggestion = { auto_trigger = true, keymap = { accept = false } },
       })
       vim.keymap.set('i', '<C-e>', function() require('copilot.suggestion').dismiss() end, { desc = 'Dismiss Copilot suggestion' })
       vim.api.nvim_set_hl(0, 'CopilotSuggestion', { fg = '#808080', italic = true })
+      vim.api.nvim_create_autocmd('User', {
+        pattern = 'BlinkCmpMenuOpen',
+        callback = function() vim.b.copilot_suggestion_hidden = true end,
+      })
+      vim.api.nvim_create_autocmd('User', {
+        pattern = 'BlinkCmpMenuClose',
+        callback = function() vim.b.copilot_suggestion_hidden = false end,
+      })
     end,
   },
   {
